@@ -11,7 +11,14 @@ let Schema = new mongoose.Schema({
     // Automod
     enabled: Boolean,
     user: String,
-    msgs: Number
+    msgs: Number,
+
+    //Punishments
+    UserID: String,
+    Punishments: Array,
+
+    // Verification
+    verified: Boolean
 })
 
 module.exports = mongoose.model('GuildConfig', Schema, 'GuildConfig')
