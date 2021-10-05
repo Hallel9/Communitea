@@ -1,6 +1,6 @@
 const Mod = require('../models/guild-schema')
 async function Punish(guild, member, punishment, user, reason) {
-    let data = await Mod.findOne({ Guild: guild.id, UserID: user.id })
+        let data = await Mod.findOne({ Guild: guild.id, UserID: user.id })
     if (!data) {
         await Mod.create({
             Guild: guild.id,
