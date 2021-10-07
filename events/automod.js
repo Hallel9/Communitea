@@ -1,5 +1,5 @@
 const client = require('../index')
-const { MessageEmbed } = require('discord.js')
+const {MessageEmbed} = require('discord.js')
 const db = require('../models/guild-schema')
 const moment = require('moment')
 async function msgs(message, newmessage) {

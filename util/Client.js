@@ -1,10 +1,5 @@
-const {
-    Client,
-    Collection
-} = require('discord.js');
-const {
-    connect
-} = require('mongoose');
+const {Client, Collection} = require('discord.js')
+const {connect} = require('mongoose')
 const chalk = require('chalk')
 require('dotenv').config()
 module.exports = class extends Client {
@@ -29,23 +24,29 @@ module.exports = class extends Client {
         connect(s, {
             useNewUrlParser: true,
             useUnifiedTopology: true
-        }).then(() => console.log(chalk.green('Connected to mongo'))).catch(() => console.log(chalk.red('Failed to connect to mongo')))
+        })
+            .then(() => console.log(chalk.green('Connected to mongo')))
+            .catch(() => console.log(chalk.red('Failed to connect to mongo')))
     }
     setStatus(a) {
-        setInterval(() => this.user.setActivity(a[Math.floor(Math.random() * a.length)], {
-            type: 'WATCHING'
-        }), 20000)
+        setInterval(
+            () =>
+                this.user.setActivity(a[Math.floor(Math.random() * a.length)], {
+                    type: 'WATCHING'
+                }),
+            20000
+        )
     }
     init = require('./handlers')(this)
     log(...args) {
         console.log(chalk.green(`[${new Date().toLocaleString()}] -`, ...args))
     }
     ID(length) {
-        let res = '';
-        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let res = ''
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
         for (let i = 0; i < length; i++) {
-            res += characters.charAt(Math.floor(Math.random() * characters.length));
+            res += characters.charAt(Math.floor(Math.random() * characters.length))
         }
-        return res;
+        return res
     }
 }

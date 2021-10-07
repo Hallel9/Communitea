@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 let Schema = new mongoose.Schema({
     //Blacklist words
@@ -18,7 +18,16 @@ let Schema = new mongoose.Schema({
     Punishments: Array,
 
     // Verification
-    verified: Boolean
+    verified: Boolean,
+
+    // Antispam
+    User: String,
+    userData: Array,
+
+    // Warning System
+    userId: String,
+    Warnings: Array,
+    Mutes: Array
 })
 
 module.exports = mongoose.model('GuildConfig', Schema, 'GuildConfig')

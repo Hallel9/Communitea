@@ -1,6 +1,6 @@
-const { glob } = require('glob');
-const { promisify } = require('util');
-const globPromise = promisify(glob);
+const {glob} = require('glob')
+const {promisify} = require('util')
+const globPromise = promisify(glob)
 
 module.exports = async function (client) {
     // Commands

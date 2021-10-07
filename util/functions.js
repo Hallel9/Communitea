@@ -1,6 +1,6 @@
 const Mod = require('../models/guild-schema')
-async function Punish(guild, member, punishment, user, reason) {
-        let data = await Mod.findOne({ Guild: guild.id, UserID: user.id })
+async function Punish(guild, moderator, punishment, user, reason) {
+    let data = await Mod.findOne({Guild: guild.id, UserID: user.id})
     if (!data) {
         await Mod.create({
             Guild: guild.id,
@@ -8,11 +8,11 @@ async function Punish(guild, member, punishment, user, reason) {
             Punishments: []
         })
 
-        data = await Mod.findOne({ Guild: guild.id, UserID: user.id})
+        data = await Mod.findOne({Guild: guild.id, UserID: user.id})
     }
     if (punishment === 'kick') {
         await data.Punishments.push({
-            Moderator: member.id,
+            Moderator: moderator.id,
             PunishType: 'Kick',
             User: user.id,
             Reason: reason,
@@ -22,7 +22,7 @@ async function Punish(guild, member, punishment, user, reason) {
     }
     if (punishment === 'ban') {
         await db.Punishments.push({
-            Moderator: interaction.user.id,
+            Moderator: moderator.id,
             PunishType: 'Ban',
             User: user.id,
             Reason: reason,
