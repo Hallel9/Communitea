@@ -1,6 +1,12 @@
 const {glob} = require('glob')
 const {promisify} = require('util')
 const globPromise = promisify(glob)
+const Client = require('../index')
+
+/**
+ *
+ * @param {Client} client
+ */
 
 module.exports = async function (client) {
     // Commands
@@ -32,6 +38,11 @@ module.exports = async function (client) {
 
         if (['MESSAGE', 'USER'].includes(file.type)) delete file.description
         arrayOfSlashCommands.push(file)
+    })
+    const webHooks = await globPromise(`${process.cwd}/webhooks/*.js`)
+    webHooks.map((a) => {
+        const file = require(a)
+        client.webHooks.set(file)
     })
 
     client.on('ready', () => client.guilds.cache.get('892763477339418655').commands.set(arrayOfSlashCommands).catch(console.log))

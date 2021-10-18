@@ -2,6 +2,7 @@ const {Client, Collection} = require('discord.js')
 const {connect} = require('mongoose')
 const chalk = require('chalk')
 require('dotenv').config()
+const fs = require('fs')
 module.exports = class extends Client {
     constructor() {
         super({
@@ -12,6 +13,7 @@ module.exports = class extends Client {
         })
         this.commands = new Collection()
         this.slashCommands = new Collection()
+        this.webHooks = new Collection()
         this.owners = ['241632903258177536', '513773028606476308']
         this.db(process.env.mongo)
         this.login(process.env.token)
