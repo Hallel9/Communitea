@@ -367,3 +367,5 @@ FodyWeavers.xsd
 
 # Env
 .env
+# JS Config
+jsconfig.json
