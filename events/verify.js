@@ -4,7 +4,7 @@ const client = require('../index'),
 client.on('ready', () => {
     const embed = new Discord.MessageEmbed().setTitle('Verification').setColor('GREEN')
     // client.channels.cache.get('893112833091469422').send({embeds: [embed]}).catch(console.log)
-    embed.setDescription('Type `' + client.code + '` to get verified.')
+    embed.setDescription('Type `' + client.code + '` to get verified.\n**Codes are Case Sensitive**')
     client.channels.cache.get('893112833091469422').messages.edit('894413928904405022', {embeds: [embed]})
 
     setInterval(() => {
