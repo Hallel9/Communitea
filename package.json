@@ -24,7 +24,7 @@
     "glob": "^7.2.0",
     "jimp": "^0.16.1",
     "moment": "^2.29.1",
-    "mongoose": "^6.0.8",
+    "mongoose": "^6.4.6",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.5",
     "opusscript": "^0.0.8",
